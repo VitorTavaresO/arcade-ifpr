@@ -20,8 +20,8 @@ void loop() {
   int redValue = map(analogRead(pinPotRed), 0, 1023, 0, 255);
   int greenValue = map(analogRead(pinPotGreen), 0, 1023, 0, 255);
   int blueValue = map(analogRead(pinPotBlue), 0, 1023, 0, 255);
-  digitalWrite(pinRed, redValue);
-  digitalWrite(pinGreen, greenValue);
-  digitalWrite(pinBlue, blueValue);
+  analogWrite(pinRed, redValue);
+  analogWrite(pinGreen, greenValue);
+  analogWrite(pinBlue, blueValue);
 
 }
