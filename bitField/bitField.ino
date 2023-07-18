@@ -1,17 +1,18 @@
 #define BUTTON_PIN 0
 #define LED_PIN 1
 struct bitField {
-  unsigned int a:1;
-  unsigned int b:1;
-  unsigned int c:1;
-  unsigned int d:1;
-  unsigned int e:1;
-  unsigned int f:1;
-  unsigned int g:1;
-  unsigned int h:1;
+  unsigned int i1:1;
+  unsigned int i2:1;
+  unsigned int i3:1;
+  unsigned int i4:1;
+  unsigned int o1:1;
+  unsigned int o2:1;
+  unsigned int o3:1;
+  unsigned int o4:1;
 };
 
-struct bitField input;
+struct bitField buttonInput;
+
 
 void setup() {
     pinMode(BUTTON_PIN, INPUT);
@@ -20,8 +21,8 @@ void setup() {
 }
 
 void loop() {
-    input.a = digitalRead(BUTTON_PIN);
-    if (input.a == 1) {
+    buttonInput.i1 = digitalRead(BUTTON_PIN);
+    if (buttonInput.i1 == 1) {
       digitalWrite(LED_PIN, HIGH);
     } else {
       digitalWrite(LED_PIN, LOW);
