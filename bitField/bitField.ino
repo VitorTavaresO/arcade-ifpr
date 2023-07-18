@@ -12,6 +12,7 @@ struct bitField {
 };
 
 struct bitField buttonInput;
+struct bitField ledOutput;
 
 
 void setup() {
