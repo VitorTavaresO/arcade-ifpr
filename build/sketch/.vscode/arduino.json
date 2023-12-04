@@ -1,0 +1,6 @@
+#line 1 "D:\\Codes\\arcade-ifpr\\.vscode\\arduino.json"
+{
+    "sketch": "arcade-ifpr.ino",
+    "output": "build",
+    "board": "arduino:avr:leonardo"
+}
