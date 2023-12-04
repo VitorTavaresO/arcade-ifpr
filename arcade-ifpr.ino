@@ -1,4 +1,5 @@
 #include <Mouse.h>
+#include <Keyboard.h>
 
 const int joystickX = A0;
 const int joystickY = A1;
@@ -10,7 +11,8 @@ int center = cursorSpeed/2;
 
 
 void setup() {
-  Mouse.begin();
+    Mouse.begin();
+    Keyboard.begin();
 }
 
 void loop() {

@@ -1,5 +1,5 @@
 {
     "sketch": "arcade-ifpr.ino",
-    "output": "build",
-    "board": "arduino:avr:leonardo"
+    "board": "arduino:avr:leonardo",
+    "port": "COM5"
 }
