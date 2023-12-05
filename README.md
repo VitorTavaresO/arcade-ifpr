@@ -1,4 +1,9 @@
-# embedded-study
+# arcade-fipr
 
-Esse estudo foi desenvolvido com base no livro Programação de Sistemas Embarcados Desenvolvendo Software para microcontroladores em linguagem C. Tendo como base os circuitos e as placas que foram passadas nos anexos ao fim do livro.
+This is a personal study project.
+The objective of this project is to create a arcade-emulator machine to be placed on the students commom room of the Instituto Federal do Paraná - Campus Paranavaí.
+
+To this project i used the following things:
+ - Old Laptop (Acer es1-411 - Intel Pentium - 2GB Ram)
+ - Arduino Pro Micro
 
