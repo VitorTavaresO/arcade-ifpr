@@ -14,8 +14,6 @@ int center = cursorSpeed/2;
 void setup() {
     pinMode(joystickButton, INPUT_PULLUP);
     Mouse.begin();
-    Keyboard.begin();
-    Serial.begin(115200);
 }
 
 void loop() {
