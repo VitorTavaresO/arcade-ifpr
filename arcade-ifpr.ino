@@ -4,6 +4,10 @@
 const int joystickX = A0;
 const int joystickY = A1;
 const int joystickButton = 15;
+const int tPadUp = 2;
+const int tPadDown = 3;
+const int tPadLeft = 4;
+const int tPadRight = 5;
 
 int cursorSpeed = 10;
 int responseDelay = 5;
@@ -14,6 +18,7 @@ int center = cursorSpeed/2;
 void setup() {
     pinMode(joystickButton, INPUT_PULLUP);
     Mouse.begin();
+    Keyboard.begin();
 }
 
 void loop() {
