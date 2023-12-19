@@ -1,5 +1,6 @@
 #include <Mouse.h>
 #include <Keyboard.h>
+#include "functions.h"
 
 const int joystickX = A0;
 const int joystickY = A1;
@@ -31,8 +32,8 @@ void setup() {
 }
 
 void loop() {
-    int xReading = readAxis(joystickX);
-    int yReading = readAxis(joystickY);
+    int xReading = readAxis(joystickX, cursorSpeed, threshold, center);
+    int yReading = readAxis(joystickY, cursorSpeed, threshold, center);
 
     Mouse.move(xReading, yReading, 0);
     if(digitalRead(joystickButton) == LOW) {
@@ -42,19 +43,4 @@ void loop() {
     }
 
     delay(responseDelay);
-}
-
-
-int readAxis(int thisAxis) {
-  int reading = analogRead(thisAxis);
-
-  reading = map(reading, 0, 1023, 0, cursorSpeed);
-
-  int distance = reading - center;
-
-  if (abs(distance) < threshold) {
-    distance = 0;
-  }
-
-  return distance;
 }
