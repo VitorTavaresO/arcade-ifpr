@@ -1,10 +1,10 @@
 #include <Mouse.h>
 #include <Keyboard.h>
 
-const int joystickX = A0;
-const int joystickY = A1;
+const int joystickX = A3;
+const int joystickY = A2;
 const int joystickButton = 15;
-const int TpadUp = 2;
+const int DpadUp = 2;
 const int DpadDown = 3;
 const int DpadLeft = 4;
 const int DpadRight = 5;
@@ -26,6 +26,10 @@ int center = cursorSpeed/2;
 
 void setup() {
     pinMode(joystickButton, INPUT_PULLUP);
+    pinMode(DpadUp, INPUT_PULLUP);
+    pinMode(DpadDown, INPUT_PULLUP);
+    pinMode(DpadLeft, INPUT_PULLUP);
+    pinMode(DpadRight, INPUT_PULLUP);
     Mouse.begin();
     Keyboard.begin();
 }
@@ -41,9 +45,32 @@ void loop() {
         Mouse.release(MOUSE_LEFT);
     }
 
+    if (digitalRead(DpadUp) == HIGH) {
+        Keyboard.release('w');
+    } else {
+        Keyboard.press('w');
+    }
+
+        if (digitalRead(DpadDown) == HIGH) {
+        Keyboard.release('s');
+    } else {
+        Keyboard.press('s');
+    }
+
+        if (digitalRead(DpadLeft) == HIGH) {
+        Keyboard.release('a');
+    } else {
+        Keyboard.press('a');
+    }
+
+        if (digitalRead(DpadRight) == HIGH) {
+        Keyboard.release('d');
+    } else {
+        Keyboard.press('d');
+    }
+
     delay(responseDelay);
 }
-
 int readAxis(int thisAxis, int cursorSpeed, int threshold, int center) {
   int reading = analogRead(thisAxis);
 
