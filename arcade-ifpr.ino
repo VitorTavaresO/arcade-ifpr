@@ -68,33 +68,10 @@ void loop() {
     } else {
         Keyboard.press('d');
     }
-
-    if (digitalRead(buttonX) == HIGH) {
-        Keyboard.release('x');
-    } else {
-        Keyboard.press('x');
-    }
-
-    if (digitalRead(buttonB) == HIGH) {
-        Keyboard.release('b');
-    } else {
-        Keyboard.press('b');
-    }
-
-    if (digitalRead(buttonY) == HIGH) {
-        Keyboard.release('y');
-    } else {
-        Keyboard.press('y');
-    }
-
-    if (digitalRead(buttonA) == HIGH) {
-        Keyboard.release('a');
-    } else {
-        Keyboard.press('a');
-    }
-
+    
     delay(responseDelay);
 }
+
 int readAxis(int thisAxis, int cursorSpeed, int threshold, int center) {
   int reading = analogRead(thisAxis);
 
