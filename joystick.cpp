@@ -1,6 +1,12 @@
 #include <Arduino.h>
+#include <Mouse.h>
+#include "consts.h"
 
-int readAxis(int thisAxis, int cursorSpeed, int threshold, int center) {
+int cursorSpeed = 10;
+int threshold = cursorSpeed/4;
+int center = cursorSpeed/2;
+
+int readAxis(int thisAxis) {
   int reading = analogRead(thisAxis);
 
   reading = map(reading, 0, 1023, 0, cursorSpeed);
@@ -12,4 +18,16 @@ int readAxis(int thisAxis, int cursorSpeed, int threshold, int center) {
   }
 
   return distance;
+}
+
+void mouse(){
+    int xReading = readAxis(joystickX);
+    int yReading = readAxis(joystickY);
+
+    Mouse.move(xReading, yReading, 0);
+    if(digitalRead(joystickButton) == LOW) {
+        Mouse.press(MOUSE_LEFT);
+    } else {
+        Mouse.release(MOUSE_LEFT);
+    }
 }

@@ -1,28 +1,7 @@
 #include <Mouse.h>
 #include <Keyboard.h>
+#include "consts.h"
 #include "functions.h"
-
-const int joystickX = A3;
-const int joystickY = A2;
-const int joystickButton = 15;
-const int DpadUp = 2;
-const int DpadDown = 3;
-const int DpadLeft = 4;
-const int DpadRight = 5;
-const int buttonX = 6;
-const int buttonB = 7;
-const int buttonY = 8;
-const int buttonA = 9;
-const int LTrigger = 10;
-const int LShoulder = 11;
-const int RTrigger = 12;
-const int RShoulder = 13;
-const int startButton = 14;
-
-int cursorSpeed = 10;
-int responseDelay = 5;
-int threshold = cursorSpeed/4;
-int center = cursorSpeed/2;
 
 
 void setup() {
@@ -36,15 +15,7 @@ void setup() {
 }
 
 void loop() {
-    int xReading = readAxis(joystickX, cursorSpeed, threshold, center);
-    int yReading = readAxis(joystickY, cursorSpeed, threshold, center);
-
-    Mouse.move(xReading, yReading, 0);
-    if(digitalRead(joystickButton) == LOW) {
-        Mouse.press(MOUSE_LEFT);
-    } else {
-        Mouse.release(MOUSE_LEFT);
-    }
+    mouse();
 
     if (digitalRead(DpadUp) == HIGH) {
         Keyboard.release('w');
