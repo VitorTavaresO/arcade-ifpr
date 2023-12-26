@@ -1,6 +1,6 @@
 #include <Mouse.h>
 #include <Keyboard.h>
-#include "consts.h"
+#include "const.h"
 #include "functions.h"
 
 
@@ -15,7 +15,7 @@ void setup() {
 }
 
 void loop() {
-    mouse();
+    joystick();
 
     if (digitalRead(DpadUp) == HIGH) {
         Keyboard.release('w');

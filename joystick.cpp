@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Mouse.h>
-#include "consts.h"
+#include "const.h"
 
 int cursorSpeed = 10;
 int threshold = cursorSpeed/4;
@@ -20,7 +20,7 @@ int readAxis(int thisAxis) {
   return distance;
 }
 
-void mouse(){
+void joystick(){
     int xReading = readAxis(joystickX);
     int yReading = readAxis(joystickY);
 
