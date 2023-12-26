@@ -2,5 +2,6 @@
 #define FUNCTIONS_H
 
 void joystick();
+void keys();
 
 #endif

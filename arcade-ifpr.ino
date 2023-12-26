@@ -16,30 +16,6 @@ void setup() {
 
 void loop() {
     joystick();
-
-    if (digitalRead(DpadUp) == HIGH) {
-        Keyboard.release('w');
-    } else {
-        Keyboard.press('w');
-    }
-
-    if (digitalRead(DpadDown) == HIGH) {
-        Keyboard.release('s');
-    } else {
-        Keyboard.press('s');
-    }
-
-    if (digitalRead(DpadLeft) == HIGH) {
-        Keyboard.release('a');
-    } else {
-        Keyboard.press('a');
-    }
-
-    if (digitalRead(DpadRight) == HIGH) {
-        Keyboard.release('d');
-    } else {
-        Keyboard.press('d');
-    }
-
+    keys();
     delay(responseDelay);
 }
