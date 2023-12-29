@@ -1,27 +1,30 @@
-#ifndef CONSTS_H
-#define CONSTS_H
+#ifndef CONST_H
+#define CONST_H
 
-const int joystickX = A3;
-const int joystickY = A2;
-const int joystickButton = 15;
+#define JOYSTICKX A3
+#define JOYSTICKY A2
+#define JOYSTICKBUTTON 15
 
-const int DpadUp = 2;
-const int DpadDown = 3;
-const int DpadLeft = 4;
-const int DpadRight = 5;
+#define DPADUP 2
+#define DPADDOWN 3
+#define DPADLEFT 4
+#define DPADRIGHT 5
 
-const int buttonX = 6;
-const int buttonB = 7;
-const int buttonY = 8;
-const int buttonA = 9;
+#define BUTTONX 6
+#define BUTTONB 7
+#define BUTTONY 8
+#define BUTTONA 9
 
-const int LTrigger = 10;
-const int LShoulder = 11;
-const int RTrigger = 12;
-const int RShoulder = 13;
+#define LTRIGGER 10
+#define LSHOULDER 11
+#define RTRIGGER 12
+#define RSHOULDER 13
 
-const int startButton = 14;
+#define STARTBUTTON 14
 
-const int responseDelay = 5;
+
+
+
+int const responseDelay =  5;
 
 #endif

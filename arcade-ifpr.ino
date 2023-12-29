@@ -5,11 +5,11 @@
 
 
 void setup() {
-    pinMode(joystickButton, INPUT_PULLUP);
-    pinMode(DpadUp, INPUT_PULLUP);
-    pinMode(DpadDown, INPUT_PULLUP);
-    pinMode(DpadLeft, INPUT_PULLUP);
-    pinMode(DpadRight, INPUT_PULLUP);
+    pinMode(JOYSTICKBUTTON, INPUT_PULLUP);
+    pinMode(DPADUP, INPUT_PULLUP);
+    pinMode(DPADDOWN, INPUT_PULLUP);
+    pinMode(DPADLEFT, INPUT_PULLUP);
+    pinMode(DPADRIGHT, INPUT_PULLUP);
     Mouse.begin();
     Keyboard.begin();
 }

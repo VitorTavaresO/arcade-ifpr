@@ -21,13 +21,13 @@ int readAxis(int thisAxis) {
 }
 
 void joystick(){
-    int xReading = readAxis(joystickX);
-    int yReading = readAxis(joystickY);
+  int xReading = readAxis(JOYSTICKX);
+  int yReading = readAxis(JOYSTICKY);
 
-    Mouse.move(xReading, yReading, 0);
-    if(digitalRead(joystickButton) == LOW) {
-        Mouse.press(MOUSE_LEFT);
-    } else {
-        Mouse.release(MOUSE_LEFT);
-    }
+  Mouse.move(xReading, yReading, 0);
+  if(digitalRead(JOYSTICKBUTTON) == LOW) {
+    Mouse.press(MOUSE_LEFT);
+  } else {
+    Mouse.release(MOUSE_LEFT);
+  }
 }
