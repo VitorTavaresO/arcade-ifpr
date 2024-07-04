@@ -22,9 +22,6 @@
 
 #define STARTBUTTON 14
 
-
-
-
-int const responseDelay =  5;
+int const responseDelay = 5;
 
 #endif
