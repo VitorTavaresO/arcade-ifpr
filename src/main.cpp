@@ -1,22 +1,26 @@
-#include <Mouse.h>
-#include <Keyboard.h>
-#include "const.h"
-#include "functions.h"
+#include <Joystick.h>
+
+Joystick_ Joystick;
+
+const int pinToButtonMap = 15;
 
 void setup()
 {
-  pinMode(JOYSTICKBUTTON, INPUT_PULLUP);
-  pinMode(DPADUP, INPUT_PULLUP);
-  pinMode(DPADDOWN, INPUT_PULLUP);
-  pinMode(DPADLEFT, INPUT_PULLUP);
-  pinMode(DPADRIGHT, INPUT_PULLUP);
-  Mouse.begin();
-  Keyboard.begin();
+  pinMode(pinToButtonMap, INPUT_PULLUP);
+  Joystick.begin();
 }
+
+int lastButtonState = 0;
 
 void loop()
 {
-  joystick();
-  keys();
-  delay(responseDelay);
+
+  int currentButtonState = !digitalRead(pinToButtonMap);
+  if (currentButtonState != lastButtonState)
+  {
+    Joystick.setButton(0, currentButtonState);
+    lastButtonState = currentButtonState;
+  }
+
+  delay(50);
 }
