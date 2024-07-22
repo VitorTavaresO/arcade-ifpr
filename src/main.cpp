@@ -1,38 +1,96 @@
 #include <Joystick.h>
 
-Joystick_ Joystick;
-
-const int blackButton = 2;
-const int whiteButton = 3;
-const int greenButton = 4;
-const int redButton = 5;
-const int yellowButton = 6;
-const int blueButton = 7;
+Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD,
+                   4, 0,                 // Button Count, Hat Switch Count
+                   true, true, false,    // X and Y, but no Z Axis
+                   false, false, false,  // No Rx, Ry, or Rz
+                   false, false,         // No rudder or throttle
+                   false, false, false); // No accelerator, brake, or steering
 
 void setup()
 {
-  pinMode(blackButton, INPUT_PULLUP);
-  pinMode(whiteButton, INPUT_PULLUP);
-  pinMode(greenButton, INPUT_PULLUP);
-  pinMode(redButton, INPUT_PULLUP);
-  pinMode(yellowButton, INPUT_PULLUP);
-  pinMode(blueButton, INPUT_PULLUP);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  pinMode(4, INPUT_PULLUP);
+  pinMode(5, INPUT_PULLUP);
+  pinMode(6, INPUT_PULLUP);
+  pinMode(7, INPUT_PULLUP);
+  pinMode(8, INPUT_PULLUP);
+  pinMode(9, INPUT_PULLUP);
+
   Joystick.begin();
-  Serial.begin(9600);
+  Joystick.setXAxisRange(-1, 1);
+  Joystick.setYAxisRange(-1, 1);
 }
 
-int lastBlackButtonState = 0;
+int lastButtonState[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 void loop()
 {
 
-  int currentBlackButtonState = !digitalRead(blackButton);
-  if (currentBlackButtonState != lastBlackButtonState)
+  for (int index = 0; index < 8; index++)
   {
-    Joystick.setButton(0, currentBlackButtonState);
-    lastBlackButtonState = currentBlackButtonState;
-    Serial.println("Black button pressed");
+    int currentButtonState = !digitalRead(index + 2);
+    if (currentButtonState != lastButtonState[index])
+    {
+      switch (index)
+      {
+      case 0: // UP
+        if (currentButtonState == 1)
+        {
+          Joystick.setYAxis(-1);
+        }
+        else
+        {
+          Joystick.setYAxis(0);
+        }
+        break;
+      case 1: // RIGHT
+        if (currentButtonState == 1)
+        {
+          Joystick.setXAxis(1);
+        }
+        else
+        {
+          Joystick.setXAxis(0);
+        }
+        break;
+      case 2: // DOWN
+        if (currentButtonState == 1)
+        {
+          Joystick.setYAxis(1);
+        }
+        else
+        {
+          Joystick.setYAxis(0);
+        }
+        break;
+      case 3: // LEFT
+        if (currentButtonState == 1)
+        {
+          Joystick.setXAxis(-1);
+        }
+        else
+        {
+          Joystick.setXAxis(0);
+        }
+        break;
+      case 4:
+        Joystick.setButton(0, currentButtonState);
+        break;
+      case 5:
+        Joystick.setButton(1, currentButtonState);
+        break;
+      case 6:
+        Joystick.setButton(2, currentButtonState);
+        break;
+      case 7:
+        Joystick.setButton(3, currentButtonState);
+        break;
+      }
+      lastButtonState[index] = currentButtonState;
+    }
   }
 
-  delay(50);
+  delay(10);
 }
